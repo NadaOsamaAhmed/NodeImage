@@ -12,8 +12,8 @@ jobs:
         run: docker login --username ${{ secrets.NODE_USERNAME }} --password ${{ secrets.NODE_PASSWORD }} 
 
       - name: "Building image"
-        run: docker build -t ${{secrets.NODE_USERNAME}}/nodeimage .
+        run: docker build -t ${{secrets.NODE_USERNAME}}/nodeimage2 .
 
       - name: "Pushing it to Docker"
-        run: docker push ${{secrets.NODE_USERNAME}}/nodeimage
+        run: docker push ${{secrets.NODE_USERNAME}}/nodeimage2
 
