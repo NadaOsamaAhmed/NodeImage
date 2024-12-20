@@ -9,11 +9,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: "Login to docker"
-        run: docker login --username ${{ secerts.NODE_USERNAME }} --password ${{ secerts.NODE_PASSWORD }} 
+        run: docker login --username ${{ secrets.NODE_USERNAME }} --password ${{ secrets.NODE_PASSWORD }} 
 
       - name: "Building image"
-        run: docker build -t ${{secerts.NODE_USERNAME}}/nodeimage .
+        run: docker build -t ${{secrets.NODE_USERNAME}}/nodeimage .
 
       - name: "Pushing it to Docker"
-        run: docker push ${{secerts.NODE_USERNAME}}/nodeimage
+        run: docker push ${{secrets.NODE_USERNAME}}/nodeimage
 
