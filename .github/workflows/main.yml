@@ -1,1 +1,19 @@
+on: 
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubunto-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: "Login to docker"
+        run: docker login --username ${{NODE_USERNAME}} --password ${{NODE_PASSWORD}} 
+
+      - name: "Building image"
+        run: docker build -t ${{NODE_USERNAME}}/nodeimage .
+
+      - name: "Pushing it to Docker"
+        run: docker push ${{NODE_USERNAME}}/nodeimage
 
