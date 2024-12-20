@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: "Login to docker"
-        run: docker login --username ${{NODE_USERNAME}} --password ${{NODE_PASSWORD}} 
+        run: docker login --username ${{ NODE_USERNAME }} --password ${{ NODE_PASSWORD }} 
 
       - name: "Building image"
         run: docker build -t ${{NODE_USERNAME}}/nodeimage .
